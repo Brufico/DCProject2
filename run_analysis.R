@@ -1,9 +1,8 @@
 #### =====================================================================
-#### Programming assignment take 2
+#### Programming assignment for "Getting and Cleaning Data"
 #### =====================================================================
 
-# clean first
-rm(list=ls())
+
 
 # Package reshape2 is used in the summarizing part (5)
 message("This script uses package reshape2. Install it first if needed")
@@ -82,7 +81,6 @@ names(traindata) <- c("subject_id", "activity", feat)
 
 ### Combining the elements ===============================================
 message("Combining  test and training data sets...")
-
 
 okdata <- rbind(traindata,testdata)
 
