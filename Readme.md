@@ -46,7 +46,7 @@ The R script in run_analysis.R has the following characteristics.
 3. Steps 1 to 4 of the assignment:
 
  + the script reads the two common elements: activity_labels.txt, and features.txt, and prepares the features vector for use.
- + for the test dataset, the three components datasets (subject id (file "subject_test"), activity ("y_test"") , and measurements ("X_test") are read, prepared for assembly and assembled to form  the test dataframe.
+ + for the test dataset, the three components datasets (subject id (file "subject_test"), activity ("y_test") , and measurements ("X_test") are read, prepared for assembly and assembled to form  the test dataframe.
  + the same operations are performed again for the training dataframe.
  + the two dataframes are combined with `rbind`.
  + the "means" and "standard deviations" variables are then selected and the result is the first tidy dataset, assigned to the variable `okdata`.

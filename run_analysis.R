@@ -3,9 +3,8 @@
 #### =====================================================================
 
 
-
 # Package reshape2 is used in the summarizing part (5)
-message("This script uses package reshape2. Install it first if needed")
+message("This script uses package 'reshape2'. Install it first if needed")
 message("loading package reshape2...")
 library(reshape2)
 
@@ -42,7 +41,7 @@ feat <- gsub("\\(",
 ## the test set data------------------------------------------------------
 message("reading test set data...")
 
-# subject_dta + y_dta (= the activities) + X_dta (= the measurements)
+# su_dta (=the test subjects) + y_dta (= the activities) + X_dta (= the measurements)
 su_dta <- read.table(file.path("UCI HAR Dataset" , "test", "subject_test.txt"))
 y_dta <- read.table(file.path("UCI HAR Dataset" , "test", "y_test.txt"))
 X_dta <- read.table(file.path("UCI HAR Dataset" , "test", "X_test.txt"))
@@ -101,7 +100,7 @@ is_std <- grepl("-std", feat, fixed=TRUE)
 is_ok <- which(is_mean | is_std)
 
 # final first tidy data set (end of step 4) stored in 'okdata'
-col_ok <- c(1, 2, is_ok+2)
+col_ok <- c(1, 2, is_ok + 2)
 okdata <- okdata[ , col_ok]
 
 
