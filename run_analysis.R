@@ -7,7 +7,7 @@ rm(list=ls())
 
 # Package reshape2 is used in the summarizing part (5)
 message("This script uses package reshape2. Install it first if needed")
-message("loading package reshape2")
+message("loading package reshape2...")
 library(reshape2)
 
 
@@ -23,7 +23,7 @@ message("The data must be in subdir 'UCI HAR Dataset' of the working directory")
 
 
 ## common elements--------------------------------------------------------
-message("reading and cleaning common data elements")
+message("reading and cleaning common data elements...")
 
 # the activity codenum-label table + the feature codenum-label table
 ac <- read.table(file.path("UCI HAR Dataset" , "activity_labels.txt"))
@@ -41,7 +41,7 @@ feat <- gsub("\\(",
 
 
 ## the test set data------------------------------------------------------
-message("reading test set data")
+message("reading test set data...")
 
 # subject_dta + y_dta (= the activities) + X_dta (= the measurements)
 su_dta <- read.table(file.path("UCI HAR Dataset" , "test", "subject_test.txt"))
@@ -49,7 +49,7 @@ y_dta <- read.table(file.path("UCI HAR Dataset" , "test", "y_test.txt"))
 X_dta <- read.table(file.path("UCI HAR Dataset" , "test", "X_test.txt"))
 
 
-message("cleaning and assembling test set data")
+message("cleaning and assembling test set data...")
 
 # Make 'y_dta' a factor with activity labels instead of activity num codes  
 y_dta[,1] <- factor( sapply(y_dta[,1], FUN=function(j){ac[j,2]}), 
@@ -63,13 +63,13 @@ names(testdata)<-c("subject_id", "activity", feat)
 
 
 ## the training set data (same procedure as test set)---------------------
-message("reading training set data (large dataset - may take a while)")
+message("reading training set data (large dataset - may take a while)...")
 
 su_dta <- read.table(file.path("UCI HAR Dataset" , "train", "subject_train.txt"))
 y_dta <- read.table(file.path("UCI HAR Dataset" , "train", "y_train.txt"))
 X_dta <- read.table(file.path("UCI HAR Dataset" , "train", "X_train.txt"))
 
-message("cleaning and assembling training set data")
+message("cleaning and assembling training set data...")
 
 y_dta[,1] <- factor( sapply(y_dta[,1], FUN=function(j){ac[j,2]}), 
                        ac[ , 2])
@@ -81,7 +81,7 @@ names(traindata) <- c("subject_id", "activity", feat)
 
 
 ### Combining the elements ===============================================
-message("Combining  test and training data sets.")
+message("Combining  test and training data sets...")
 
 
 okdata <- rbind(traindata,testdata)
@@ -91,7 +91,7 @@ rm(list=c("su_dta", "y_dta", "X_dta", "testdata", "traindata"))
 
 
 ### select mean and std dev measurements variables (keeping  subject + activity names)
-message("Selecting only mean and std.dev variables")
+message("Selecting only mean and std.dev variables...")
 
 # Matching names of  "means" variables in the feature names vector (feat)
 is_mean1 <- grepl("-mean", feat, fixed=TRUE)
@@ -114,7 +114,7 @@ okdata <- okdata[ , col_ok]
 #### step 5 summarizing and reshaping the data
 #### =====================================================================
 
-message("summarizing the data")
+message("summarizing the data...")
 # melt and cast (and get wide form)
 m_okdata <- melt(okdata, id.vars=c("subject_id", "activity"))
 s_okdata <- dcast(m_okdata, subject_id + activity ~ variable, mean)
