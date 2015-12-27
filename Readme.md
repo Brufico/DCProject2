@@ -23,7 +23,7 @@ As the concept behind each name is complicated enough, its seems difficult to fi
 The first tidy dataset thus contains 2 + 66 = 68 variables, and 10299 rows (observations)
 
 ### Summary - second set of tidy data ###
-A new dataset containing the mean of each variable for each combination subject-activity is computed using functions `melt` and `cast`, from the package `reshape2` .
+A new dataset containing the mean of each variable for each combination subject-activity is computed using functions `melt` and `dcast`, from the package `reshape2` .
 
 A "wide" form of data is generated in the process:
 
@@ -45,17 +45,17 @@ The R script in run_analysis.R has the following characteristics.
 
 3. Steps 1 to 4 of the assignment:
 
-+ the script reads the two common elements: activity_labels.txt, and features.txt, and prepares the features vector for use.
-+ for the test dataset, the three components datasets (subject id, Activity (y) , and measurements (X) are read, prepared for assembly and assembled to form  the test dataframe.
-+ the same operations are performed again for the training dataframe.
-+ the two dataframes are combined with `rbind`.
-+ the "means" and "standard deviations" variables are then selected and the result is the first tidy dataset, assigned to the variable `okdata`.
+ + the script reads the two common elements: activity_labels.txt, and features.txt, and prepares the features vector for use.
+ + for the test dataset, the three components datasets (subject id, Activity (y) , and measurements (X) are read, prepared for assembly and assembled to form  the test dataframe.
+ + the same operations are performed again for the training dataframe.
+ + the two dataframes are combined with `rbind`.
+ + the "means" and "standard deviations" variables are then selected and the result is the first tidy dataset, assigned to the variable `okdata`.
 
 4. Step 5
 
-+ The variables of the previous dataframe are then summarized using the functions `melt` and `dcast` of the pachage`reshape2`. The result is the final tidy dataset, assigned to the variable `s_okdata` and saved in "summary.txt". 
+ + The variables of the previous dataframe are then summarized using the functions `melt` and `dcast` of the pachage`reshape2`. The result is the final tidy dataset, assigned to the variable `s_okdata` and saved in "summary.txt". 
 
-It is possible to read and view this dataset using the following code (if "summary.txt" is in your work directory):
+It is possible to read and view this dataset in RStudio using the following code (if "summary.txt" is in your work directory):
 ````
 tidy <- read.table("summary.txt", header=TRUE)
 View(tidy)
