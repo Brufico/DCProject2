@@ -15,15 +15,15 @@ output: html_document
 The units have been eliminated in the collection process, for two reasons :
 
 1. acceleration has non-SI "standard gravity units 'g'" (cf README.txt, line 49) . Therefore the units for each measurement should be:
-        + acceleration ( "Acc""measurement) is in 'g'
-        + acceleration Jerk ("AccJerk""measurement), being the time-derivative of the acceleration (cf feature_info.txt), has dimension g.s-1 
-        + angular velocity ("Gyro""measurement) is in radians.s-1 (cf feature_info.txt, line 53)
-        + angular velocity Jerk ("AccJerk" measurement) is in radians.s-2
+ + acceleration ( "Acc" measurement) is in 'g'
+ + acceleration Jerk ("AccJerk" measurement), being the time-derivative of the acceleration (cf feature_info.txt), has dimension g.s-1 
+  + angular velocity ("Gyro" measurement) is in radians.s-1 (cf feature_info.txt, line 53)
+ + angular velocity Jerk ("AccJerk" measurement) is in radians.s-2
 
 
 2. **BUT** all these measurements are "are *normalized and bounded within [-1,1]*" (cf feature_info.txt, line 57). Consequently:
-        + each measurement is a dimensionless number between -1 and 1
-        + each measurement mean or standard deviation (and the mean of these as well) has the same dimension: **it is a dimensionless number between -1 and 1**
+ + each measurement is a dimensionless number between -1 and 1
+ + each measurement mean or standard deviation (and the mean of these as well) has the same dimension: **it is a dimensionless number between -1 and 1**
 
 
 
