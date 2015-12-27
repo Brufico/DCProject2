@@ -1,8 +1,6 @@
----
-title: "Code Book for the final tidy dataset (summary.txt)"
-author: "BFC"
-output: html_document
----
+
+# Code Book for the final tidy dataset (summary.txt)
+
 
 ## Structure
 * 180 observations x 68 variables
